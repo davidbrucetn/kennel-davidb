@@ -1,0 +1,166 @@
+/* Import the google web fonts you want to use */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: "Comfortaa", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-left: 1em;
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+p {
+  margin-bottom: 1.5em;
+  color: #d6fcff;
+  color: darkslateblue;
+}
+
+
+strong {
+  font-weight: bold;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+.div__kennel {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 99%;
+    text-align: center;
+}
+
+
+
+img {
+  
+  display: block;
+  margin-top: 1em;
+  border: 0;
+  width: 250px;
+  height: 200px;
+  /* height: auto; */
+}
+
+.section-content {
+  padding: 1.4em;
+
+}
+
+.container__kennel__info {
+    display: flex;
+    flex-flow: row nowrap;
+    width: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+    box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
+    border-radius: 5px;
+}
+.container-cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+}
+.container__cards__locations, .container__cards__owners, .container__cards__employees {
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;  
+    text-align: left;
+    width: 99%;
+    margin-left: 1em;
+    margin-right: 1em;
+    box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
+    border-radius: 5px;
+
+}
+
+.container-cards-animal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+  margin-left: 1em;
+  margin-right: 1em;
+   box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
+  border-radius: 5px;
+}
+
+.card {
+    flex: 0 0 25%;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 33%;
+    padding:0.01em 16px;
+    margin: 1em 0 1em 0;
+    box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
+    border-radius: 5px;
+}
+
+.card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    /* padding-left: 1em; */
+    margin-bottom: 1em;
+    font-size: 1.3vw;
+    box-shadow:0 4px 10px 0 rgba(216, 162, 202, 0.2),0 4px 20px 0 rgba(139, 17, 107, 0.19);
+    border-radius: 5px;
+}
+
+.card__inner {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 0;
+}
+
+.div__card__name {
+  margin-bottom: 1em;
+}
+
+p {
+  margin-left: 1em;
+  margin-top: -10px;
+}
+
+.header__section {
+    text-align: center;
+}
+
+.container-cards > img {
+  width: 100%;
+  height: 570px;
+  
+}
+
+.div__home__text {
+  color: dimgray;
+  position: absolute;
+  top: 35%;
+  left: 19%;
+  transform: translate(-50%, -50%);
+}
+

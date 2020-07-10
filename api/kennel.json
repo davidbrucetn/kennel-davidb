@@ -1,0 +1,138 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "location": "Brentwood",
+      "breed": "Poodle",
+      "picture": "./images/poodle.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Kaiser",
+      "location": "Hermitage",
+      "breed": "German Shepherd",
+      "picture": "./images/gshepherd.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Shadow",
+      "location": "Nashville North",
+      "breed": "Pitbull",
+      "picture": "./images/pitbull.jpg"
+    },
+    { "id": 4, "name": "Scout", "location": "Nashville Central","breed": "Shepherd Mix", "picture": "./images/shepmix.jpg" }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Cookie Fleck",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/emp-cookiefleck.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Christy Cummings",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/emp-christycummings.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Scott Donlan",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/emp-scottdonlan.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Harlan Pepper",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/emp-harlanpepper.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Meg Swan",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/emp-megswan.jpg"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Puppy Way",
+      "established": "3 years",
+      "picture": "./images/location-nashvillenorth.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nashville Central",
+      "address": "121 Demonbreun",
+      "established": "3 years",
+      "picture": "./images/location-nashville.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Brentwood",
+      "address": "666 Franklin Road",
+      "established": "3 years",
+      "picture": "./images/location-brentwood.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bellevue",
+      "address": "323 Sawyer Brown Road",
+      "established": "3 years",
+      "picture": "./images/location-bellevue.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Hermitage",
+      "address": "1492 Old Hickory Blvd",
+      "established": "3 years",
+      "picture": "./images/location-hermitage.jpg"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Sean Connery",
+      "location": "Nashville North",
+      "experience": "3 years",
+      "picture": "./images/owner-seanconnery.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Arnold Schwarzenegger",
+      "location": "Nashville Central",
+      "address": "121 Demonbreun",
+      "established": "3 years",
+      "picture": "./images/owner-arnold.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Nicole Kidman",
+      "location": "Brentwood",
+      "experience": "3 years",
+      "picture": "./images/owner-nicole.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Jack White",
+      "location": "Bellevue",
+      "experience": "3 years",
+      "picture": "./images/owner-jack.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Justin Trudeau",
+      "location": "Hermitage",
+      "experience": "3 years",
+      "picture": "./images/owner-justin.jpg"
+    }
+  ]
+}
