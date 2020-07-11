@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const OwnerCard = (props) => {
   return (
@@ -6,16 +8,19 @@ const OwnerCard = (props) => {
       <div className="card-content">
       <div className="card__inner">
           <picture>
-            <img src={require(`${props.picture}`)} alt="Kennel Owner" />
+            <img src={require(`${props.owner.picture}`)} alt="Kennel Owner" />
           </picture>
         </div>
         <div className="div__card__name">
           <h3>
-            Name: <span className="card-ownerName">{props.name}</span>
+            Name: <span className="card-ownerName">{props.owner.name}</span>
           </h3>
         </div>
-            <p>Location:  {props.location}</p>
-            <p>Experience: {props.experience}</p>
+            <p>Location:  {props.owner.location}</p>
+            <p>Experience: {props.owner.experience}</p>
+            <Link to={`/owners/${props.owner.id}`}>
+              <button>Details</button>
+            </Link>
       </div>
     </div>
   );

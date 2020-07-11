@@ -1,4 +1,8 @@
 #root > .card {
     max-width: 400px;
     margin: 10px auto;
+    margin-bottom: 1em;
+  }
+  .div__detail {
+    margin-top: 1em;
   }

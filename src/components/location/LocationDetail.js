@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LocationManager from '../../modules/LocationManager';
 import './LocationDetail.css'
 
+
 const LocationDetail = props => {
     const [location, setLocation] = useState({ name: "", breed: "", picture: "" });
     const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +29,10 @@ const LocationDetail = props => {
             </picture> : null
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
-        <p>Address: {location.address}</p>
-        <p>Established: loccation.established</p>
+        <div className="div__detail">
+          <p>Address: {location.address}</p>
+          <p>Established: loccation.established</p>
+        </div>
       </div>
     </div>
   );

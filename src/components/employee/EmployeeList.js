@@ -24,7 +24,7 @@ const EmployeeList = () => {
   // Finally we use map() to "loop over" the employees array to show a list of employee cards
   return (
     <div className="container-cards">
-      {employees.map(employee => <EmployeeCard key={employee.id} name={employee.name} location={employee.location} experience={employee.experience} picture={employee.picture} />)}
+      {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} />)}
     </div>
   );
 };
