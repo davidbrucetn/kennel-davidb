@@ -3,10 +3,12 @@ import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList"
 import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from './animal/AnimalForm'
 //only include these once they are built - previous practice exercise
 import LocationList from "./location/LocationList";
 import EmployeeList from "./employee/EmployeeList";
 import OwnerList from "./owner/OwnerList";
+import LocationDetail from "./location/LocationDetail";
 
 const ApplicationViews = () => {
   return (
@@ -19,25 +21,54 @@ const ApplicationViews = () => {
         }}
       />
       <Route exact path="/animals" render={(props) => {
-          return <AnimalList />
-        }} />
-        <Route path="/animals/:animalId(\d+)" render={(props) => {
-          // Pass the animalId to the AnimalDetailComponent
-          return <AnimalDetail animalId={parseInt(props.match.params.animalId)}/>
-        }} />
+        return <AnimalList {...props}/>
+      }} />
 
-           <Route
+      <Route
+        path="/animals/:animalId(\d+)"
+        render={props => {
+          // Pass the animalId to the AnimalDetailComponent
+          return (
+            <AnimalDetail
+              animalId={parseInt(props.match.params.animalId)}
+              {...props}
+            />
+          );
+        }}
+      />
+
+    {/* New Animal Form */}
+    <Route path="/animals/new" render={(props) => {
+      return <AnimalForm {...props} />
+    }} />
+
+      <Route
         path="/location"
         render={props => {
           return <LocationList />;
         }}
       />
+
+      <Route
+        path="/locations/:locationId(\d+)"
+        render={props => {
+          //Pass the locationId to the LocationDetailComponent
+          return (
+            <LocationDetail
+              locationId={parseInt(props.match.params.locationId)}
+              {...props}
+              />
+          );
+        }}
+      />
+
       <Route
         path="/employee"
         render={props => {
           return <EmployeeList />;
         }}
       />
+
       <Route
         path="/owner"
         render={props => {

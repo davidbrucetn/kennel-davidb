@@ -21,7 +21,19 @@
       "breed": "Pitbull",
       "picture": "./images/pitbull.jpg"
     },
-    { "id": 4, "name": "Scout", "location": "Nashville Central","breed": "Shepherd Mix", "picture": "./images/shepmix.jpg" }
+    {
+      "id": 4,
+      "name": "Scout",
+      "location": "Nashville Central",
+      "breed": "Shepherd Mix",
+      "picture": "./images/shepmix.jpg"
+    },
+    {
+      "name": "Queequeg",
+      "breed": "Pomeranian",
+      "picture": "./dog.svg",
+      "id": 5
+    }
   ],
   "employees": [
     {
