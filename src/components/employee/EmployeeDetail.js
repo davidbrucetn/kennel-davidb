@@ -18,7 +18,15 @@ const EmployeeDetail = props => {
                 });
         setIsLoading(false);
         });
-    },[props.employeeId]);
+    }, [props.employeeId]);
+
+    const handleDelete = () => {
+        //invoke the delete function in Employee Mgr and re-direct to the emp list
+        setIsLoading(true);
+        EmployeeManager.delete(props.employeeId).then(() =>
+        props.history.push("/employees")
+        );
+    };
 
     return (
         (!isLoading) ? 
@@ -33,6 +41,7 @@ const EmployeeDetail = props => {
                 <div className="div__detail">
                     <p>Experience: {employee.experience}</p>
                     <p>Location: {employee.location}</p>
+                    <button type="button" disabled={isLoading} onClick={handleDelete}>Re-home Employee</button>
                 </div>
             </div>
         </div>

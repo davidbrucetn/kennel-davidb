@@ -9,6 +9,7 @@ import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail"
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeDetail from "./employee/EmployeeDetail";
+import EmployeeForm from "./employee/EmployeeForm"
 import OwnerList from "./owner/OwnerList";
 import OwnerDetail from './owner/OwnerDetails'
 
@@ -63,17 +64,25 @@ const ApplicationViews = () => {
           );
         }}
       />
-
+      
       <Route
-        exact path="/employee"
-        render={props => {
-          return <EmployeeList />;
+        exact path="/employees"
+        render={ (props) => {
+          return <EmployeeList {...props} />;
         }}
       />
-      
-      <Route path="/employees/:employeeId(\d+)" render={(props) => {
-        //pass employeeId to Emp Detail Component
-        return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}/>
+      <Route path="/employees/new" render={(props) => {
+        return <EmployeeForm {...props} />
+      }} />      
+      <Route 
+        path="/employees/:employeeId(\d+)" 
+        render={ props => {
+          //pass employeeId to Emp Detail Component
+          return (<EmployeeDetail 
+            employeeId={parseInt(props.match.params.employeeId)}
+            {...props}
+            />
+          );
       }} />
 
       {/*
@@ -86,7 +95,7 @@ const ApplicationViews = () => {
       */}
 
       <Route
-        exact path="/owner"
+        exact path="/owners"
         render={props => {
           return <OwnerList />;
         }}
