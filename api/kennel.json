@@ -40,6 +40,13 @@
       "picture": "./dog.svg",
       "location": "Brentwood",
       "id": 7
+    },
+    {
+      "name": "Tschuss",
+      "breed": "Doberman",
+      "picture": "./dog.svg",
+      "location": "Bellevue",
+      "id": 8
     }
   ],
   "employees": [
@@ -77,6 +84,13 @@
       "location": "Nashville North",
       "experience": "3 years",
       "picture": "./images/emp-megswan.jpg"
+    },
+    {
+      "name": "Peter Gabriel",
+      "experience": "14 years",
+      "location": "Brentwood",
+      "picture": "./employee.jpg",
+      "id": 6
     }
   ],
   "locations": [
