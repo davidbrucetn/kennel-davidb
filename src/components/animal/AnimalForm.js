@@ -1,7 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
-import './AnimalForm.css'
+import { firstLetterCase } from '../../modules/helpers';
+import LocationManager from '../../modules/LocationManager';
+import './AnimalForm.css';
 
+const LocationList = () => {
+  // The initial state is an empty array
+  const [locations, setLocations] = useState([]);
+
+  const getLocations = () => {
+    // After the data comes back from the API, we
+    //  use the setLocations function to update state
+    return LocationManager.getAll().then(locationsFromAPI => {
+      setLocations(locationsFromAPI)
+    });
+  };
+  
+  console.log(`arrays ${locations} -> ${setLocations}`)
+  // got the locations from the API on the component's first render
+  useEffect(() => {
+    getLocations();
+  }, []);
+
+  // Finally we use map() to "loop over" the locations array to show a list of location cards
+  return (
+      locations
+  );
+}
 
 // Form function for adding animals
 const AnimalForm = props => {
@@ -12,6 +37,13 @@ const AnimalForm = props => {
   //useState to determine if form is loading, so buttons will be disabled if true
   const [isLoading, setIsLoading] = useState(false);
 
+  const buildLocations = () => {
+    let selectHTML = []
+    LocationList().forEach((location => {
+        selectHTML.push(<option value={location.name}>{location.name}</option>)
+    }));
+    return selectHTML;
+}
 
   // handleFieldChange called from button onChange event, will update object as characters are typed in the fields. 
   const handleFieldChange = evt => {
@@ -20,7 +52,7 @@ const AnimalForm = props => {
     // console.log("stateToChange Prev Value:",stateToChange)
     
     //stateToChange[key] set to value from input event
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[evt.target.id] = firstLetterCase(evt.target.value);
     // console.log("stateToChange key value=",stateToChange[evt.target.id], "id:",evt.target.id)
 
     // sets new animal object 
@@ -63,6 +95,11 @@ const AnimalForm = props => {
               placeholder="Breed"
             />
             <label htmlFor="breed">Breed</label>
+            <select name="location" id="location"
+                        required
+                        onChange={handleFieldChange}>
+                            {buildLocations()}
+                        </select>
           </div>
           <div className="alignRight">
             <button

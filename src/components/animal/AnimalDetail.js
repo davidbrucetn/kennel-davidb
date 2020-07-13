@@ -30,6 +30,7 @@ const AnimalDetail = props => {
  
 
   return (
+    (!isLoading) ? 
     <div className="card">
       <div className="card-content">
         { (!isLoading) ? 
@@ -38,13 +39,16 @@ const AnimalDetail = props => {
         </picture> :<img src={require("./dog.svg")} alt="My Dog" />
         }
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
-        <p>Breed: {animal.breed}</p>
-        <p>Location: {animal.location}</p>
+        <div className="div__detail">
+          <p>Breed: {animal.breed}</p>
+          <p>Location: {animal.location}</p>
+        </div>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>
       </div>
     </div>
+    :null
   );
 }
 

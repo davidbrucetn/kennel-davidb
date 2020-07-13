@@ -6,9 +6,13 @@ import AnimalDetail from "./animal/AnimalDetail";
 import AnimalForm from './animal/AnimalForm'
 //only include these once they are built - previous practice exercise
 import LocationList from "./location/LocationList";
+import LocationDetail from "./location/LocationDetail"
 import EmployeeList from "./employee/EmployeeList";
+import EmployeeDetail from "./employee/EmployeeDetail";
+import EmployeeForm from "./employee/EmployeeForm"
 import OwnerList from "./owner/OwnerList";
-import LocationDetail from "./location/LocationDetail";
+import OwnerDetail from './owner/OwnerDetails'
+
 
 const ApplicationViews = () => {
   return (
@@ -42,8 +46,7 @@ const ApplicationViews = () => {
       return <AnimalForm {...props} />
     }} />
 
-      <Route
-        path="/location"
+      <Route exact path="/location"
         render={props => {
           return <LocationList />;
         }}
@@ -61,20 +64,58 @@ const ApplicationViews = () => {
           );
         }}
       />
-
+      
       <Route
-        path="/employee"
-        render={props => {
-          return <EmployeeList />;
+        exact path="/employees"
+        render={ (props) => {
+          return <EmployeeList {...props} />;
         }}
       />
+      <Route path="/employees/new" render={(props) => {
+        return <EmployeeForm {...props} />
+      }} />      
+      <Route 
+        path="/employees/:employeeId(\d+)" 
+        render={ props => {
+          //pass employeeId to Emp Detail Component
+          return (<EmployeeDetail 
+            employeeId={parseInt(props.match.params.employeeId)}
+            {...props}
+            />
+          );
+      }} />
+
+      {/*
+        This is a new route to handle a URL with the following pattern:
+        http://localhost:3000/employees/1
+
+        It will not handle the following URL because the `(\d+)` matches only numbers after the slash
+        http://localhost:3000/employees/meg
+      
+      */}
 
       <Route
-        path="/owner"
+        exact path="/owners"
         render={props => {
           return <OwnerList />;
         }}
       />
+      
+      <Route path="/owners/:ownerId(\d+)" render={(props) => {
+        //pass ownerId to Emp Detail Component
+        return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}/>
+      }} />
+
+      {/*
+        This is a new route to handle a URL with the following pattern:
+        http://localhost:3000/employees/1
+
+        It will not handle the following URL because the `(\d+)` matches only numbers after the slash
+        http://localhost:3000/employees/meg
+      
+      */}
+
+
     </React.Fragment>
   );
 };

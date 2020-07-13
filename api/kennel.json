@@ -33,6 +33,13 @@
       "breed": "Pomeranian",
       "picture": "./dog.svg",
       "id": 5
+    },
+    {
+      "name": "Fang",
+      "breed": "Terrier",
+      "picture": "./dog.svg",
+      "location": "Brentwood",
+      "id": 7
     }
   ],
   "employees": [
