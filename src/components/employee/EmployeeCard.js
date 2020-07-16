@@ -1,9 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import APIManager from '../../modules/APIManager'
+
 
 
 const EmployeeCard = (props) => {
+    
+  const handleDelete = () => {
+    //invoke the delete function in Employee Mgr and re-direct to the emp list
+    APIManager.delete(props.employeeId,"employees").then(() =>
+    props.history.push("/employees")
+    );
+  };
+
+    
+
   return (
+
+     (props.employee !== undefined) ? (
     <div className="card">
       <div className="card-content">
       <div className="card__inner">
@@ -16,12 +29,12 @@ const EmployeeCard = (props) => {
             Name: <span className="card-employeeName">{props.employee.name}</span>
           </h3>
         </div>
-        <p>Location:  {props.employee.location}</p>
-        <Link to={`/employees/${props.employee.id}`}>
-          <button>Details</button>
-        </Link>
+        <p>Location: {props.kennel.name} </p>
+        <button type="button" onClick={() => { props.history.push(`/employees/${props.employee.id}/details`) }}>Details</button>
+        <button type="button" onClick={() => props.history.push(`/employees/${props.employee.id}/edit`) }>Edit</button>
+        <button type="button" onClick={handleDelete}>Re-home Employee</button>
       </div>
-    </div>
+    </div>):null 
   );
 };
 

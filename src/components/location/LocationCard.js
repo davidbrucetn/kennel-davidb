@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
 const LocationCard = (props) => {
@@ -8,17 +7,17 @@ const LocationCard = (props) => {
       <div className="card-content">
       <div className="card__inner">
           <picture>
-            <img src={require(`${props.location.picture}`)} alt="Kennel Location" />
-          </picture>
+            {(props.kennel.picture !== undefined) ?
+            <img src={require(`${props.kennel.picture}`)} alt="Kennel Location" /> : null
+          }
+        </picture>
         </div>
         <div className="div__card__name">
           <h3>
-            Name: <span className="card-locationName">{props.location.name}</span>
+            Name: <span className="card-locationName">{props.kennel.name}</span>
           </h3>
         </div>
-        <Link to={`/locations/${props.location.id}`}>
-          <button>Details</button>
-        </Link>
+        <button type="button" onClick={() => { props.history.push(`/locations/${props.kennel.id}/details`) }}>Details</button>
       </div>
     </div>
   );

@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import EmployeeCard from './EmployeeCard';
-import EmployeeManager from '../../modules/EmployeeManager';
+import APIManager from '../../modules/APIManager';
 
 const EmployeeList = (props) => {
   // The initial state is an empty array
   const [employees, setEmployees] = useState([]);
-
   const getEmployees = () => {
     // After the data comes back from the API, we
     //  use the setEmployees function to update state
-    return EmployeeManager.getAll().then(employeesFromAPI => {
-      setEmployees(employeesFromAPI)
+    return APIManager.getAllWithExpandedLocation("employees")
+      .then(employeesFromAPI => {
+        setEmployees(employeesFromAPI);
     });
   };
 
-  console.log(`arrays ${employees} -> ${setEmployees}`)
-  // got the employees from the API on the component's first render
+ // got the employees from the API on the component's first render
   useEffect(() => {
     getEmployees();
   }, []);
@@ -32,7 +31,7 @@ const EmployeeList = (props) => {
       </button>
     </section>
     <div className="container-cards">
-      {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} />)}
+      {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} kennel={employee.location} {...props}/>)}
     </div>
     </>
   );

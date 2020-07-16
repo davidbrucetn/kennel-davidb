@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {  NavLink, withRouter  } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+  const handleLogout = () => {
+    props.clearUser();
+    props.history.push('/');
+  }
+
   return (
     <header>
       <h1 className="site-title">
@@ -13,33 +19,52 @@ const NavBar = () => {
       <nav>
         <ul className="container">
           <li>
-            <Link className="nav-link" to="/">
+            <NavLink className="nav-link" activeClassName="selected" exact to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
+          {props.hasUser
+            ? 
           <li>
-            <Link className="nav-link" to="/animals">
+            <NavLink className="nav-link" activeClassName="selected" exact to="/animals">
               Animals
-            </Link>
-          </li>
-          <li><Link className="nav-link" to="/location">
+            </NavLink>
+          </li> 
+          : null }
+          {props.hasUser
+            ?
+          <li><NavLink className="nav-link" activeClassName="selected" exact to="/locations">
               Locations
-              </Link>
+              </NavLink>
             </li>
+            :null }
+          {props.hasUser
+            ?
             <li>
-            <Link className="nav-link" to="/employees">
+            <NavLink className="nav-link" activeClassName="selected" exact to="/employees">
               Employees
-            </Link>
+            </NavLink>
           </li>
+          :null }
+        {props.hasUser
+            ?
           <li>
-            <Link className="nav-link" to="/owners">
+            <NavLink className="nav-link" activeClassName="selected" exact to="/owners">
               Owners
-            </Link>
+            </NavLink>
           </li>
+          :null}
+           {props.hasUser
+            ?<li>
+            <span className="nav-link" onClick={handleLogout}> Logout </span>
+          </li>
+            :  <li>
+            <NavLink className="nav-link" to="/login"> Login </NavLink>
+          </li>}
         </ul>
       </nav>
     </header>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

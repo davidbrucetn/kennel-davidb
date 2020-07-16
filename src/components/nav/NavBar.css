@@ -5,6 +5,7 @@ small {
   header {
     background-color: darkblue;
     border: cornflowerblue solid 3px;
+    border-radius: 8px;
   }
   
   .site-title {
@@ -16,6 +17,7 @@ small {
     display: flex;
     padding: 0;
     margin-bottom: 0;
+    border-radius: 8px;
   }
   
   nav .container li {
@@ -37,4 +39,10 @@ small {
   
   .nav-link:hover {
     color: maroon;
+  }
+
+  .selected {
+    color: lime;
+    pointer-events: none;
+     
   }

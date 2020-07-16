@@ -1,29 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager'
 import './AnimalDetail.css'
 
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", picture: "", location: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "", picture: "", employeeId: "" });
+  const [ kennel, setKennel ] = useState({ kennel: "" })
+  const [ employee, setEmployee ] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
-    AnimalManager.get(props.animalId).then(animal => {
+    APIManager.getWithExpandedLocation(props.animalId,"animals").then(animal => {
       setAnimal({
         name: animal.name,
         breed: animal.breed,
         picture: animal.picture,
-        location: animal.location
+        employeeId: animal.employeeId
       });
+      setKennel(animal.location.name)
+      APIManager.get(animal.employeeId,"employees")
+        .then(employee =>
+          setEmployee(employee))
       setIsLoading(false);
     });
-  }, [props.animalId]);
+  }, [props.animalId]);   
 
   const handleDelete = () => {
     //invoke the delete function in AnimalManger and re-direct to the animal list.
     setIsLoading(true);
-    AnimalManager.delete(props.animalId).then(() =>
+    APIManager.delete(props.animalId,"animals").then(() =>
       props.history.push("/animals")
     );
   };
@@ -41,7 +47,8 @@ const AnimalDetail = props => {
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
         <div className="div__detail">
           <p>Breed: {animal.breed}</p>
-          <p>Location: {animal.location}</p>
+          <p>Location: {kennel}</p>
+          <p>Wranger: {employee.name}</p>
         </div>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge

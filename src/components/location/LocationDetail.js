@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import LocationManager from '../../modules/LocationManager';
+import APIManager from "../../modules/APIManager"
 import './LocationDetail.css'
 
 
 const LocationDetail = props => {
     const [location, setLocation] = useState({ name: "", breed: "", picture: "" });
-    const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    //get(id) from LocationManager and hang on to the data; put it into state
-    LocationManager.get(props.locationId)
+    //get(id) from APIManager and hang on to the data; put it into state
+    APIManager.get(props.locationId,"locations")
       .then(location => {
         setLocation({
           name: location.name,

@@ -1,21 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import OwnerManager from '../../modules/OwnerManager';
+import APIManager from "../../modules/APIManager";
 import './OwnerDetails.css';
 
 const OwnerDetail = props => {
-    const [owner, setOwner] = useState({name:"", experience: "", location: "", picture: ""})
+    const [owner, setOwner] = useState({name:"", experience: "", picture: ""})
+    const [ kennel, setKennel ] = useState({ kennel: "" })
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         //get(id) from OwnerManager and hang on to data, put it into state
-        OwnerManager.get(props.ownerId)
+        APIManager.getWithExpandedLocation(props.ownerId,"owners")
             .then(owner => {
                 setOwner({
                     name: owner.name,
                     experience: owner.experience,
-                    location: owner.location,
-                    picture: owner.picture
+                    picture: owner.picture,
+                    location: owner.locationId
                 });
+                setKennel(owner.location)
         setIsLoading(false);
         });
     },[props.ownerId]);
@@ -32,7 +34,7 @@ const OwnerDetail = props => {
                 <h3>Name: <span style={{ color: 'darkslategrey' }}>{owner.name}</span></h3>
                 <div className="div__detail">
                     <p>Experience: {owner.experience}</p>
-                    <p>Location: {owner.location}</p>
+                    <p>Location: {kennel.name}</p>
                 </div>
             </div>
         </div>

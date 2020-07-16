@@ -76,6 +76,24 @@ img {
     box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
     border-radius: 5px;
 }
+
+.container__parent {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  box-shadow:0 4px 10px 0 rgba(201, 170, 112, 0.2),0 4px 20px 0 rgba(228, 160, 14, 0.19);
+  border-radius: 5px;
+}
+
+.container__header {
+  display: inline;
+  justify-content: center;
+  text-align: center;
+}
+
 .container-cards {
   display: flex;
   flex-flow: row wrap;
