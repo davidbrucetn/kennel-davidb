@@ -3,94 +3,109 @@
     {
       "id": 1,
       "name": "Doodles",
-      "location": "Brentwood",
-      "breed": "Poodle",
-      "picture": "./images/poodle.jpg"
+      "breed": "Poodle (Toy)",
+      "locationId": 3,
+      "picture": "./images/poodle.jpg",
+      "employeeId": 6
     },
     {
       "id": 2,
       "name": "Kaiser",
-      "location": "Hermitage",
-      "breed": "German Shepherd",
-      "picture": "./images/gshepherd.jpg"
+      "breed": "Dutch Shepherd",
+      "locationId": 5,
+      "picture": "./images/gshepherd.jpg",
+      "employeeId": 7
     },
     {
       "id": 3,
       "name": "Shadow",
-      "location": "Nashville North",
-      "breed": "Pitbull",
-      "picture": "./images/pitbull.jpg"
+      "breed": "American Pit Bull Terrier",
+      "locationId": 1,
+      "picture": "./images/pitbull.jpg",
+      "employeeId": 2
     },
     {
       "id": 4,
       "name": "Scout",
-      "location": "Nashville Central",
-      "breed": "Shepherd Mix",
-      "picture": "./images/shepmix.jpg"
+      "breed": "German Shepherd Dog",
+      "locationId": 2,
+      "picture": "./images/shepmix.jpg",
+      "employeeId": 1
     },
     {
+      "id": 5,
       "name": "Queequeg",
       "breed": "Pomeranian",
       "picture": "./dog.svg",
-      "id": 5
+      "locationId": 4,
+      "employeeId": 4
     },
     {
+      "id": 7,
       "name": "Fang",
-      "breed": "Terrier",
+      "breed": "Toy Fox Terrier",
+      "locationId": 3,
       "picture": "./dog.svg",
-      "location": "Brentwood",
-      "id": 7
+      "employeeId": 6
     },
     {
       "name": "Tschuss",
       "breed": "Doberman",
       "picture": "./dog.svg",
-      "location": "Bellevue",
-      "id": 8
+      "locationId": 4,
+      "id": 8,
+      "employeeId": 4
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Cookie Fleck",
-      "location": "Nashville North",
-      "experience": "3 years",
+      "experience": "5 years",
+      "locationId": 2,
       "picture": "./images/emp-cookiefleck.jpg"
     },
     {
       "id": 2,
       "name": "Christy Cummings",
-      "location": "Nashville North",
+      "locationId": 1,
       "experience": "3 years",
       "picture": "./images/emp-christycummings.jpg"
     },
     {
       "id": 3,
       "name": "Scott Donlan",
-      "location": "Nashville North",
+      "locationId": 1,
       "experience": "3 years",
       "picture": "./images/emp-scottdonlan.jpg"
     },
     {
       "id": 4,
       "name": "Harlan Pepper",
-      "location": "Nashville North",
+      "locationId": 4,
       "experience": "3 years",
       "picture": "./images/emp-harlanpepper.jpg"
     },
     {
       "id": 5,
       "name": "Meg Swan",
-      "location": "Nashville North",
+      "locationId": 1,
       "experience": "3 years",
       "picture": "./images/emp-megswan.jpg"
     },
     {
       "name": "Peter Gabriel",
       "experience": "14 years",
-      "location": "Brentwood",
-      "picture": "./employee.jpg",
+      "locationId": 3,
+      "picture": "./images/emp-peterg.jpg",
       "id": 6
+    },
+    {
+      "name": "Ozzy Osbourne",
+      "experience": "3 days",
+      "locationId": 5,
+      "picture": "./images/emp-ozzy.jpg",
+      "id": 7
     }
   ],
   "locations": [
@@ -134,36 +149,36 @@
     {
       "id": 1,
       "name": "Sean Connery",
-      "location": "Nashville North",
+      "locationId": 1,
       "experience": "3 years",
       "picture": "./images/owner-seanconnery.jpg"
     },
     {
       "id": 2,
       "name": "Arnold Schwarzenegger",
-      "location": "Nashville Central",
+      "locationId": 2,
       "address": "121 Demonbreun",
-      "established": "3 years",
+      "experience": "3 years",
       "picture": "./images/owner-arnold.jpg"
     },
     {
       "id": 3,
       "name": "Nicole Kidman",
-      "location": "Brentwood",
+      "locationId": 3,
       "experience": "3 years",
       "picture": "./images/owner-nicole.jpg"
     },
     {
       "id": 4,
       "name": "Jack White",
-      "location": "Bellevue",
+      "locationId": 4,
       "experience": "3 years",
       "picture": "./images/owner-jack.jpg"
     },
     {
       "id": 5,
       "name": "Justin Trudeau",
-      "location": "Hermitage",
+      "locationId": 5,
       "experience": "3 years",
       "picture": "./images/owner-justin.jpg"
     }

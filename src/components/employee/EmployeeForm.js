@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { firstLetterCase } from '../../modules/helpers'
-import EmployeeManager from '../../modules/EmployeeManager';
+import APIManager from '../../modules/APIManager'
 import LocationsReturn from '../location/LocationsReturn';
 
 import './EmployeeForm.css';
@@ -12,7 +12,7 @@ const EmployeeForm = props => {
     const buildLocations = () => {
         let selectHTML = []
         LocationsReturn().forEach((location => {
-            selectHTML.push(<option value={location.name}>{location.name}</option>)
+            selectHTML.push(<option value={location.id}>{location.name}</option>)
         }));
         return selectHTML;
     }
@@ -23,8 +23,7 @@ const EmployeeForm = props => {
 
         //key and value of new employee object, using helper to capitalize first letter if not experience
         stateToChange[evt.target.id] = (evt.target.id === "name") ? firstLetterCase(evt.target.value):(evt.target.value);
-        console.log("field:",evt.target.id, "->", evt.target.value)
-        console.log(stateToChange)
+       
         setEmployee(stateToChange)
     }; // End handleFieldChange
 
@@ -36,7 +35,7 @@ const EmployeeForm = props => {
         } else {
             setIsLoading(true);
             //create emp and redirect to list
-            EmployeeManager.post(employee)
+            APIManager.post(employee,"employees")
             .then(() => props.history.push("/employees"))
         }
     }; // End construct 
@@ -63,8 +62,8 @@ const EmployeeForm = props => {
                         />
                         <label htmlFor="experience">Experience</label>
                         <select name="location" id="location"
-                        required
-                        onChange={handleFieldChange}>
+                            required
+                            onChange={handleFieldChange}>
                             {buildLocations()}
                         </select>
                         <label htmlFor="locations">Locations</label>
@@ -80,8 +79,6 @@ const EmployeeForm = props => {
             </form>
         </>
     )
-
-
 }; // End EmployeeForm
 
 export default EmployeeForm;

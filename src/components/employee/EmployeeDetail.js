@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import EmployeeManager from '../../modules/EmployeeManager';
+import APIManager from "../../modules/APIManager";
 import './EmployeeDetail.css';
 
 const EmployeeDetail = props => {
@@ -7,8 +7,8 @@ const EmployeeDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        //get(id) from EmployeeManager and hang on to data, put it into state
-        EmployeeManager.get(props.employeeId)
+        //get(id) from APIManager and hang on to data, put it into state
+        APIManager.get(props.employeeId,"employees")
             .then(employee => {
                 setEmployee({
                     name: employee.name,
@@ -23,7 +23,7 @@ const EmployeeDetail = props => {
     const handleDelete = () => {
         //invoke the delete function in Employee Mgr and re-direct to the emp list
         setIsLoading(true);
-        EmployeeManager.delete(props.employeeId).then(() =>
+        APIManager.delete(props.employeeId,"employees").then(() =>
         props.history.push("/employees")
         );
     };

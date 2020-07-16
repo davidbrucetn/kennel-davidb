@@ -16,7 +16,7 @@ const OwnerCard = (props) => {
             Name: <span className="card-ownerName">{props.owner.name}</span>
           </h3>
         </div>
-            <p>Location:  {props.owner.location}</p>
+            <p>Location:  {props.kennel}</p>
             <p>Experience: {props.owner.experience}</p>
             <Link to={`/owners/${props.owner.id}`}>
               <button>Details</button>
